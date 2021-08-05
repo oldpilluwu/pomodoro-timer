@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import MusicPlayer from "./components/Music/MusicPlayer";
+import Session from "./components/Session/Session";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div
+			className="App col-md-6 col-sm-12 d-flex flex-column justify-content-center p-4"
+			style={{
+				fontSize: "1.25rem",
+			}}
+		>
+			<MusicPlayer />
+			<Session />
+		</div>
+	);
 }
 
 export default App;
