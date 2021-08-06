@@ -109,9 +109,9 @@ const Timer = () => {
 		<div className="px-2">
 			<div className="col-12 d-flex mb-4">
 				<div
-					className="col-6 d-flex flex-column justify-content-center align-items-center"
+					className="col-6 d-flex flex-column justify-content-center align-items-start"
 					style={{
-						height: "100px",
+						height: "150px",
 						fontWeight: "bold",
 						fontSize: "1.65rem",
 					}}
@@ -120,6 +120,8 @@ const Timer = () => {
 						className="border border-warning d-flex flex-column justify-content-center align-items-center rounded-circle"
 						style={{
 							padding: "1.5rem 1.5rem",
+							width: "150px",
+							height: "150px",
 						}}
 					>
 						<div>
@@ -136,17 +138,26 @@ const Timer = () => {
 				<div className="col-6 d-flex justify-content-between">
 					<button
 						onClick={handleStartPause}
-						className="start col-5 h-100"
+						className="start col-5 h-100 btn border-dark"
+						style={{
+							borderRadius: "0",
+						}}
 					>
 						{isActive ? "Pause" : "Start"}
 					</button>
-					<button onClick={reset} className="reset col-5 h-100">
+					<button
+						onClick={reset}
+						className="reset col-5 h-100 btn border-dark"
+						style={{
+							borderRadius: "0",
+						}}
+					>
 						Reset
 					</button>
 				</div>
 			</div>
 			<div className="col-12 d-flex mb-4">
-				<div className="col-6 d-flex justify-content-center align-items-center text-muted">
+				<div className="col-6 d-flex justify-content-start align-items-center text-muted">
 					Session Length
 				</div>
 				<button
@@ -170,7 +181,7 @@ const Timer = () => {
 				</button>
 			</div>
 			<div className="col-12 d-flex">
-				<div className="col-6 d-flex justify-content-center align-items-center text-muted">
+				<div className="col-6 d-flex justify-content-start align-items-center text-muted">
 					Break Length
 				</div>
 				<button
