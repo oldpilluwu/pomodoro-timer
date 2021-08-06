@@ -1,5 +1,5 @@
 import MusicPlayer from "./components/Music/MusicPlayer";
-import Session from "./components/Session/Session";
+import Timer from "././components/Timer/Timer";
 
 function App() {
 	return (
@@ -10,7 +10,7 @@ function App() {
 			}}
 		>
 			<MusicPlayer />
-			<Session />
+			<Timer />
 		</div>
 	);
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import alarm from "./alarm.wav";
 
-const Session = () => {
+const Timer = () => {
 	const [second, setSecond] = useState("00");
 	const [minute, setMinute] = useState("15");
 	const [isActive, setIsActive] = useState(false);
@@ -15,6 +15,8 @@ const Session = () => {
 		var length = sessionLength;
 		length++;
 		setSessionLength(length);
+
+		if (!isSession) return;
 		setCounter(length * 60);
 		setMinute(String(length).length === 1 ? `0${length}` : length);
 		setSecond("00");
@@ -25,6 +27,8 @@ const Session = () => {
 		var length = sessionLength;
 		length--;
 		setSessionLength(length);
+
+		if (!isSession) return;
 		setCounter(length * 60);
 		setMinute(String(length).length === 1 ? `0${length}` : length);
 		setSecond("00");
@@ -35,6 +39,11 @@ const Session = () => {
 		var length = breakLength;
 		length++;
 		setBreakLength(length);
+
+		if (isSession) return;
+		setCounter(length * 60);
+		setMinute(String(length).length === 1 ? `0${length}` : length);
+		setSecond("00");
 	};
 
 	const decreaseBreakLength = () => {
@@ -42,6 +51,11 @@ const Session = () => {
 		var length = breakLength;
 		length--;
 		setBreakLength(length);
+
+		if (isSession) return;
+		setCounter(length * 60);
+		setMinute(String(length).length === 1 ? `0${length}` : length);
+		setSecond("00");
 	};
 
 	const handleStartPause = () => {
@@ -139,6 +153,7 @@ const Session = () => {
 					type="button"
 					onClick={increaseSessionLength}
 					className="add btn btn-primary btn-lg col-2"
+					disabled={isActive}
 				>
 					+
 				</button>
@@ -146,8 +161,10 @@ const Session = () => {
 					{sessionLength}
 				</span>
 				<button
+					type="button"
 					onClick={decreaseSessionLength}
 					className="subtract btn btn-primary btn-lg col-2"
+					disabled={isActive}
 				>
 					-
 				</button>
@@ -157,8 +174,10 @@ const Session = () => {
 					Break Length
 				</div>
 				<button
+					type="button"
 					onClick={increaseBreakLength}
 					className="add btn btn-primary btn-lg col-2"
+					disabled={isActive}
 				>
 					+
 				</button>
@@ -166,8 +185,10 @@ const Session = () => {
 					{breakLength}
 				</span>
 				<button
+					type="button"
 					onClick={decreaseBreakLength}
 					className="subtract btn btn-primary btn-lg col-2"
+					disabled={isActive}
 				>
 					-
 				</button>
@@ -176,4 +197,4 @@ const Session = () => {
 	);
 };
 
-export default Session;
+export default Timer;
